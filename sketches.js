@@ -26,5 +26,5 @@ osc(20)
   .scale(2)
   .out()
 
-// modulated noise pattern
-noise(100).modulate(osc().modulateScale(osc(8))).modulateScrollY(osc(4)).out()
+// modulated noise pattern with scaling
+noise(100).modulate(osc().modulateScale(osc(8))).modulateScale(noise(0.1)).modulateScrollY(osc(4)).out()
