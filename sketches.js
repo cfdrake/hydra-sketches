@@ -15,6 +15,26 @@ osc(100, 0.1, 1)
   .modulate(o0, 0.01)
   .out()
 
+// cell division
+shape([4, 16].fast(0.25), 0.4, 0.4)
+  .color(255, 191, 0)
+  .colorama(0.1)
+  .modulateRotate(osc(32), 0.05)
+  .mult(o0, 0.35)
+  .modulateScrollY(osc(), 0.01)
+  .modulateScale(osc(16), 0.02)
+  .modulateRotate(osc(32), 0.1)
+  .repeat([1, 2, 3].fast(0.3), [1, 2, 3].fast(0.25))
+  .modulateScrollY(osc(16), 0.1)
+  .out()
+
+// modulated noise pattern with scaling
+noise(100)
+  .modulate(osc().modulateScale(osc(8)))
+  .modulateScale(noise(0.1))
+  .modulateScrollY(osc(4))
+  .out()
+
 // posterized red/blue gummy scroller
 osc(20)
   .modulateScale(osc(10), 100)
@@ -25,6 +45,3 @@ osc(20)
   .posterize()
   .scale(2)
   .out()
-
-// modulated noise pattern with scaling
-noise(100).modulate(osc().modulateScale(osc(8))).modulateScale(noise(0.1)).modulateScrollY(osc(4)).out()
