@@ -9,6 +9,16 @@ shape(2)
   .modulateScrollY(osc(1))
   .out()
 
+// psych sea slug
+osc(640, 0.05, 1)
+  .modulateRotate(osc(32))
+  .mult(shape([3, 2].fast(0.1)))
+  .modulateScale(noise(2))
+  .blend(o0, 0.7)
+  .modulateScale(osc(8), 0.02)
+  .modulate(o0, 0.005)
+  .out()
+
 // melted bronze metascroller with distorted triangle lens
 osc(100, 0.1, 1)
   .modulate(noise(2).add(osc(32))).diff(shape(3).modulate(noise(0.8)).modulateScale(osc(2)))
